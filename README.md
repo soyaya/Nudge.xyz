@@ -109,7 +109,7 @@ Since the Oak Security Audit was completed, we have made the following 2 changes
 | Question                                | Answer                       |
 | --------------------------------------- | ---------------------------- |
 | ERC20 used by the protocol              |       Any (all possible ERC20s)             |
-| Test coverage                           | ✅ SCOUTS: Please populate this after running the test coverage command                          |
+| Test coverage                           | 96%                        |
 | ERC721 used  by the protocol            |          None           |
 | ERC777 used by the protocol             |          None            |
 | ERC1155 used by the protocol            |          None           |
