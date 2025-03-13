@@ -222,7 +222,8 @@ N/A
 
 ## Running tests
 
-✅ SCOUTS: Add a screenshot of your terminal showing the test coverage
+![](https://github.com/user-attachments/assets/c12f4b49-fe5f-48bd-8519-819e5b353c2a)
+
 
 ## Miscellaneous
 
