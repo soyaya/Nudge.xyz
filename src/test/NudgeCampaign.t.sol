@@ -13,7 +13,7 @@ import {ERC20, TestERC20} from "../mocks/TestERC20.sol";
 import {MockTokenDecimals} from "../mocks/MockTokenDecimals.sol";
 import {TestUSDC} from "../mocks/TestUSDC.sol";
 import {console} from "forge-std/console.sol";
-import {Create2} from "@openzeppelin/contracts/utils/Create2.sol";
+import {Errors} from "@openzeppelin/contracts/utils/Create2.sol";
 
 contract NudgeCampaignTest is Test {
     NudgeCampaign private campaign;
@@ -318,7 +318,7 @@ contract NudgeCampaignTest is Test {
         uint256 currentTimestamp = block.timestamp;
 
         // Attempt to deploy campaign with current timestamp
-        vm.expectRevert(Create2.Create2FailedDeployment.selector);
+        vm.expectRevert(Errors.FailedDeployment.selector);
         factory.deployCampaign(
             holdingPeriodInSeconds,
             address(toToken),
