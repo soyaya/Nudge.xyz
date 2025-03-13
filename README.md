@@ -1,28 +1,3 @@
-# ✨ So you want to run an audit
-
-This `README.md` contains a set of checklists for our audit collaboration. This is your audit repo, which is used for scoping your audit and for providing information to wardens
-
-Some of the checklists in this doc are for our scouts and some of them are for **you as the audit sponsor (⭐️)**.
-
----
-
-# Repo setup
-
-## ⭐️ Sponsor: Add code to this repo
-
-- [ ] Create a PR to this repo with the below changes:
-- [ ] Confirm that this repo is a self-contained repository with working commands that will build (at least) all in-scope contracts, and commands that will run tests producing gas reports for the relevant contracts.
-- [ ] Please have final versions of contracts and documentation added/updated in this repo **no less than 48 business hours prior to audit start time.**
-- [ ] Be prepared for a 🚨code freeze🚨 for the duration of the audit — important because it establishes a level playing field. We want to ensure everyone's looking at the same code, no matter when they look during the audit. (Note: this includes your own repo, since a PR can leak alpha to our wardens!)
-
-## ⭐️ Sponsor: Repo checklist
-
-- [ ] Modify the [Overview](#overview) section of this `README.md` file. Describe how your code is supposed to work with links to any relevant documentation and any other criteria/details that the auditors should keep in mind when reviewing. (Here are two well-constructed examples: [Ajna Protocol](https://github.com/code-423n4/2023-05-ajna) and [Maia DAO Ecosystem](https://github.com/code-423n4/2023-05-maia))
-- [ ] Optional: pre-record a high-level overview of your protocol (not just specific smart contract functions). This saves wardens a lot of time wading through documentation.
-- [ ] Review and confirm the details created by the Scout (technical reviewer) who was assigned to your contest. *Note: any files not listed as "in scope" will be considered out of scope for the purposes of judging, even if the file will be part of the deployed contracts.*  
-
----
-
 # Nudge.xyz audit details
 - Total Prize Pool: $20,000 in USDC
   - HM awards: up to $17,000 USDC
@@ -57,13 +32,29 @@ _Note for C4 wardens: Anything included in this `Automated Findings / Publicly K
 
 # Overview
 
-[ ⭐️ SPONSORS: add info here ]
+[ ⭐️ SPONSORS: add additional info here]
+
+### Setup:
+- pnpm install
+- forge install openzeppelin/openzeppelin-contracts
+
+### Running Tests:
+- forge test
+
+### Audits
+[Oak Security Audit Report](https://github.com/oak-security/audit-reports/blob/main/Nudge/2025-03-07%20Audit%20Report%20-%20Nudge%20Campaigns.pdf) - Published on March 7, 2025
+
+Since the Oak Security Audit was completed, we have made the following 2 changes:
+
+1. We added a function to rescue tokens (function rescueTokens(address token)). Without this function, if someone were to send tokens (other than the reward tokens) to a campaign contract, they would become stuck and therefore lost: Commit [23a8098f84d1100baee349be0f33344b68dccf2a](https://github.com/violetprotocol/nudge-smart-contracts/commit/23a8098f84d1100baee349be0f33344b68dccf2a).
+
+2. We changed the logic for campaigns where the campaign admin does not want them to start immediately upon deployment. In this case, the address with the NUDGE_ADMIN_ROLE had to call setIsCampaignActive() to activate the campaign once the startTimestamp was reached. With the change introduced by Commit [e0fe46913140110ba6c1fa68a63c7a41a6dd4db2](https://github.com/violetprotocol/nudge-smart-contracts/commit/e0fe46913140110ba6c1fa68a63c7a41a6dd4db2), the campaign will automatically be turned "active" once the startTimestamp is reached by a call to handleReallocation(). Importantly, a campaign can still be set to active or inactive manually.
 
 ## Links
 
-- **Previous audits:**  https://github.com/oak-security/audit-reports/blob/main/Nudge/2025-03-07%20Audit%20Report%20-%20Nudge%20Campaigns.pdf
+- **Previous audits:** [Oak Security Audit Report](https://github.com/oak-security/audit-reports/blob/main/Nudge/2025-03-07%20Audit%20Report%20-%20Nudge%20Campaigns.pdf)
   - ✅ SCOUTS: If there are multiple report links, please format them in a list.
-- **Documentation:** https://docs.nudge.xyz
+- **Documentation:** https://docs.nudge.xyz, with the most relevant section for the audit being https://docs.nudge.xyz/technical-documentation/smart-contracts
 - **Website:** https://nudge.xyz/
 - **X/Twitter:** https://x.com/nudgexyz
 
