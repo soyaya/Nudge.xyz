@@ -71,6 +71,9 @@ Since the Oak Security Audit was completed, we have made the following 2 changes
 - **Website:** <https://nudge.xyz/>
 - **X/Twitter:** <https://x.com/nudgexyz>
 
+**Examples of real transactions (tested on Base):**
+- New campaign participation: https://basescan.org/tx/0xe11e8013db2118413b91e9281dd253ab0cb4dcb3782567262ab362aebdb7d033
+- Reward claiming: https://basescan.org/tx/0x659c2794a62823a0c930b6ce1e9cef6f8d4889278669b036b1e8d28b9704539a
 ---
 
 # Scope
