@@ -34,7 +34,12 @@ The Slither report can be found [here](https://github.com/code-423n4/2025-03-nud
 
 # Overview
 
-[ ⭐️ SPONSORS: add additional info here]
+Nudge is a Reallocation Marketplace that helps protocols incentivize asset movement across blockchains and ecosystems.
+Nudge empowers protocols and ecosystems to grow assets, boost token demand, and motivate users to reallocate assets within their wallets—driving sustainable, KPI-driven growth.
+
+With Nudge, protocols can create and fund campaigns that reward users for acquiring and holding a specific token for at least a week. Nudge smart contracts acts as an escrow for rewards, while its backend system monitors participants' addresses to ensure they maintain their holdings of said token for the required period. Nudge provides an all-in-one solution, eliminating the need for any technical implementation by protocols looking to run such incentivisation campaigns.
+
+For more details please see: [What is Nudge?](https://docs.nudge.xyz/)
 
 ### Setup
 
